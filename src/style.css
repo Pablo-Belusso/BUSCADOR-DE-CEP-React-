@@ -83,5 +83,31 @@
 }
 
 .principal span {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+@media (max-width: 720px) {
+    .titulo {
+        font-size: 60px;
+
+    }
+
+    .principal h2 {
+        font-size: 30px;
+    }
+
+    .principal {
+        width: 80%;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 540px) {
+    .titulo {
+        font-size: 50px;
+
+    }
+
 }

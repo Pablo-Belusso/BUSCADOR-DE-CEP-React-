@@ -1,7 +1,15 @@
+import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import './style.css';
 
 function App() {
+
+  const [input, setInput] = useState(''); // Armazena o valor digitado no INPUT
+
+  function manipularPesquisa() {
+    alert("Valor do Input: " + input)
+  }
+
   return (
     <div className="container">
       <h1 className="titulo">Buscador de CEP:</h1>
@@ -10,9 +18,11 @@ function App() {
         <input
           type="text"
           placeholder="Digite o seu CEP..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)} // Passa o valor digitado para usestate
         />
 
-        <button className="botaoProcura">
+        <button className="botaoProcura" onClick={manipularPesquisa}>
           <FiSearch size={25} color='#FFF' />
         </button>
 
