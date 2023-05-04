@@ -1,0 +1,87 @@
+.container {
+    height: 100vh;
+    display: flex;
+    /* Trabalha com flebox */
+    justify-content: center;
+    /* Alinha na Horizontal */
+    align-items: center;
+    /* Alinha na Vertical */
+    flex-direction: column;
+    /* Direciona os elementos em coluna */
+    background: linear-gradient(#121212, #212B46);
+
+}
+
+.titulo {
+    font-size: 80px;
+    color: #fff;
+    animation: flipTitle 1.6s;
+    /* chama a animação criada com o tempo de duração */
+}
+
+
+/* CRIA A ANIMAÇÃO de Rotação de 90 graus */
+@keyframes flipTitle {
+    from {
+        transform: rotateX(90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+.caixaInput {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 34px 0;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.caixaInput input {
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    margin-right: 10px;
+}
+
+.caixaInput input::placeholder {
+    color: #bebebe;
+}
+
+.botaoProcura {
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.botaoProcura:hover {
+    transform: scale(1.2);
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(197, 217, 235);
+    width: 500px;
+    border-radius: 9px;
+}
+
+.principal h2 {
+    margin: 16px 0;
+    font-size: 39px;
+}
+
+.principal span {
+    margin-bottom: 16px;
+}
