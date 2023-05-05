@@ -1,14 +1,41 @@
 import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import './style.css';
+import api from './services/api';
 
 function App() {
 
   const [input, setInput] = useState(''); // Armazena o valor digitado no INPUT
 
-  function manipularPesquisa() {
-    alert("Valor do Input: " + input)
+  const [cep, setCep] = useState({}); // Começa com CEP vazio
+
+  async function manipularPesquisa() {
+    /* "async" transforma a função em assíncrona (demora um pouco) pois vai ter que fazer requisição na API  */
+
+    // 01001000/json/
+
+    if (input === '') {  // Condição se o input ficar vazio
+      alert('Preencha algum CEP!')
+      return;
+    }
+
+    try {  // É o que você quer fazer, mas pode dar errado
+
+      const response = await api.get(`${input}/json`) // espera a requisição do CEP na API
+      setCep(response.data) // Passa o valor da requisição para o "useState"
+      console.log(response.data);
+      setInput(""); //Limpa o Input
+
+
+    } catch { // Caso dê errado ele cai no bloco "catch"
+
+      alert("Ops, erro ao buscar o CEP!")
+      setInput("") //Limpa o Input
+    }
+
+
   }
+
 
   return (
     <div className="container">
@@ -28,12 +55,14 @@ function App() {
 
       </div>
 
+
       <main className='principal'>
-        <h2>CEP: 74815-700</h2>
-        <span>Av. São João, 250</span>
-        <span>Ed. Bella Vittá</span>
-        <span>Setor Alto da Glória</span>
-        <span>Goiânia - GO</span>
+
+        <h2>CEP: {cep.cep} </h2>
+        <span>{cep.logradouro}</span>
+        <span>{cep.complemento}</span>
+        <span>{cep.bairro}</span>
+        <span>{cep.localidade} - {cep.uf}</span>
       </main>
 
     </div>
