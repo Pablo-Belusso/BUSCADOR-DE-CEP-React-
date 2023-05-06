@@ -55,15 +55,16 @@ function App() {
 
       </div>
 
+      {Object.keys(cep).length > 0 && ( // Verifica se o valor do Input é maior que 0
+        <main className='principal'>
+          <h2>CEP: {cep.cep} </h2>
+          <span>{cep.logradouro}</span>
+          <span>{cep.complemento}</span>
+          <span>{cep.bairro}</span>
+          <span>{cep.localidade} - {cep.uf}</span>
+        </main>
+      )}
 
-      <main className='principal'>
-
-        <h2>CEP: {cep.cep} </h2>
-        <span>{cep.logradouro}</span>
-        <span>{cep.complemento}</span>
-        <span>{cep.bairro}</span>
-        <span>{cep.localidade} - {cep.uf}</span>
-      </main>
 
     </div>
 
